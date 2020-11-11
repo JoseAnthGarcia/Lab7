@@ -23,15 +23,13 @@ public class ServletCanciones extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String order = request.getParameter("order");
+        String order = request.getParameter("order") == null?
+                "listar" : request.getParameter("order");
 
         CancionDao cd = new CancionDao();
 
         if(order.equalsIgnoreCase("on")){
-
-
-        }else{
-            ArrayList<Cancion> listCanciones = cd.listarCanciones();
+            ArrayList<Cancion> listCanciones = cd.listarCancionesOrden();
 
             request.setAttribute("listCanciones", listCanciones);
 
@@ -39,6 +37,13 @@ public class ServletCanciones extends HttpServlet {
             requestDispatcher.forward(request, response);
 
         }
+        ArrayList<Cancion> listCanciones = cd.listarCanciones();
+
+        request.setAttribute("listCanciones", listCanciones);
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("listaCanciones.jsp");
+        requestDispatcher.forward(request, response);
+
 
     }
 }

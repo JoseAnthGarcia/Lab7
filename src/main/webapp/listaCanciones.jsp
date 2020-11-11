@@ -35,7 +35,7 @@
         <th>CANCION</th>
         <th>BANDA</th>
     </tr>
-    <%int for(Cancion cancion: listCanciones){%>
+    <%for(Cancion cancion: listCanciones){%>
     <tr>
         <td><%=cancion.getIdCancion()%></td>
         <td><%=cancion.getNombreCancion()%></td>
