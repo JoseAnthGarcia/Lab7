@@ -20,15 +20,29 @@
     <jsp:include page="static/head.jsp">
         <jsp:param name="title" value="Lista de Tours por Ciudad"/>
     </jsp:include>
+    <style>
+        .tableHeader{
+            color:#BBBBBB;
+        }
+        .tableRow{
+            color:#FFFFFF;
+        }
+        .content{
+            max-width: 70%;
+            margin: auto;
+            margin-top: 40px;
+        }
+    </style>
 
 </head>
 <body>
 <jsp:include page="includes/navbar.jsp">
     <jsp:param name="page" value="tpc"/>
 </jsp:include>
-<H1 style="color:white">Lista de Tours por Ciudad</H1>
-<table class="table">
-    <tr>
+<div class="content">
+    <H1 style="color:white">Lista de Tours por Ciudad</H1>
+    <table class="table">
+    <tr class="tableHeader">
         <th>#</th>
         <th>TOUR</th>
         <th>CIUDAD</th>
@@ -36,7 +50,7 @@
     </tr>
     <%int i =1;
         for(TourCiudad tourCiudad: listToursPorCiudad){%>
-    <tr>
+    <tr class="tableRow">
         <td><%=i%></td>
         <td><%=tourCiudad.getTourName()%></td>
         <td><%=tourCiudad.getCiudad()%></td>
@@ -45,5 +59,6 @@
     <%i++;
         }%>
 </table>
+</div>
 </body>
 </html>
