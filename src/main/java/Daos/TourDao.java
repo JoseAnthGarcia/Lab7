@@ -16,7 +16,7 @@ public class TourDao {
 
         String user = "root";
         String password = "root";
-        String url = "jdbc:mysql://localhost:3306/hr?serverTimezone=America/Lima";
+        String url = "jdbc:mysql://localhost:3306/lab6sw1?serverTimezone=America/Lima";
 
         String sql = "SELECT idtour, nombre_tour, nombre_banda FROM tour t\n" +
                 "INNER JOIN banda b ON t.banda=b.idbanda\n" +
